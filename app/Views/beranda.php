@@ -39,6 +39,9 @@ https://templatemo.com/tm-556-catalog-z
                     <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">Beranda</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link nav-link-2" href="">tes</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link nav-link-2" href="">Resep</a>
                 </li>
                 <li class="nav-item">
