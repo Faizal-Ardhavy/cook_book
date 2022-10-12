@@ -2,10 +2,19 @@
 
 namespace App\Controllers;
 
+use App\Models\ResepModel;
+
 class Home extends BaseController
 {
     public function index()
+    
     {
-        return view('beranda');
+        $list = new ResepModel();
+
+        $listData = $list->findAll();
+        
+        $data = ['data' => $listData];
+    
+        return view('beranda',$data);
     }
 }
