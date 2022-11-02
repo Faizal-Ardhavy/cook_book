@@ -39,10 +39,13 @@ https://templatemo.com/tm-556-catalog-z
                     <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="">Resep</a>
+                    <a class="nav-link nav-link-2" href="formResep">Buat Resep</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-3" href="">Resep Saya</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-3" href=""><?= $dataAll[0][0]->nama?></a>
                 </li>
             </ul>
             </div>
@@ -71,7 +74,7 @@ https://templatemo.com/tm-556-catalog-z
         </div>
         <div class="row tm-mb-90 tm-gallery">
             <?php
-             foreach ($data as $dt) {
+             foreach ($dataAll[1]["data"] as $dt) {
             ?>
         	<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
@@ -86,7 +89,7 @@ https://templatemo.com/tm-556-catalog-z
                     <img src=<?=$gambar?> alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2><?= $dt["resep"] ?></h2>
-                        <a href="photo-detail.html">View more</a>
+                        <a href="detil?id=<?=$dt['id']?>">View more</a>
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
