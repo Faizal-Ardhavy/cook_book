@@ -67,4 +67,41 @@ class Home extends BaseController
     public function loginPage(){
         return view("login");
     }
+
+    public function resepSaya(){
+        $session = session();
+        if(!$session->logged_in==true){
+            echo "<script type='text/javascript'>alert('Belum sign in');</script>";
+            return redirect()->to(base_url() . '/');
+        }else{
+            $list = new ResepModel();
+            $akun = new AkunModel();
+            
+            $dataAll["dataAll"] =[
+                $dataUser['dataUser'] = $akun->where('username',$_SESSION["username"])->find(),
+            
+                $data["data"] = $list->where('id_author',session()->id)->findAll(),
+                
+            ];
+
+        
+            return view('myResep', $dataAll);
+        }
+    }
+    public function updatePage(){
+        $session = session();
+        $list = new ResepModel();
+        if(!$session->logged_in==true){
+            echo "<script type='text/javascript'>alert('Belum sign in');</script>";
+            return redirect()->to(base_url() . '/');
+        }else{
+            $list = new ResepModel();
+            $data["data"] = $this->request->getVar('id');
+            $resep["resep"] =  $list->where('id',$data)->find();
+
+        return view('formUpdateResep',$resep);
+        }
+    }
+
+
 }

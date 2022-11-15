@@ -36,13 +36,13 @@ https://templatemo.com/tm-556-catalog-z
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-1 active" aria-current="page" href="beranda">Beranda</a>
+                    <a class="nav-link nav-link-1" href="beranda">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-2" href="formResep">Buat Resep</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-3" href="myResep">Resep Saya</a>
+                    <a class="nav-link nav-link-3 active" aria-current="page" href="">Resep Saya</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-3" href=""><?= $dataAll[0][0]->nama?></a>
@@ -53,12 +53,6 @@ https://templatemo.com/tm-556-catalog-z
     </nav>
 
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/bg.jpg">
-        <form class="d-flex tm-search-form">
-            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success tm-search-btn" type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
     </div>
 
     <div class="container-fluid tm-container-content tm-mt-60">
@@ -74,7 +68,7 @@ https://templatemo.com/tm-556-catalog-z
         </div>
         <div class="row tm-mb-90 tm-gallery">
             <?php
-             foreach ($dataAll[1]["data"] as $dt) {
+             foreach ($dataAll[1] as $dt) {
             ?>
         	<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
@@ -96,6 +90,16 @@ https://templatemo.com/tm-556-catalog-z
                     <span class="tm-text-gray-light"><?= $dt["author"] ?></span>
                     <span>9,906 views</span>
                 </div>
+                <form action="update" method="POST">
+                    <button type="submit" class="btn btn-outline-primary">Perbarui</button>
+                    <input type="hidden" value="<?=$dt['id']?>" name ="id">
+                </form>
+                <form action="hapusResep" method="POST">
+                    <button type="submit" class="btn btn-outline-danger">Hapus</button>
+                    <input type="hidden" value="<?=$dt['id']?>" name ="id">
+                </form>
+
+
             </div>   
             <?php
             }

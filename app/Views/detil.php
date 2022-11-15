@@ -1,3 +1,3 @@
 <?php
-dd($_POST["username"],$_POST["password"],$_POST["name"])
+dd($resep[0]);
 ?>

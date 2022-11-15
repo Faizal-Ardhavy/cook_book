@@ -41,9 +41,14 @@ $routes->get('beranda', 'Home::index');
 $routes->get('logout', 'Login::logout');
 $routes->get('/register', 'Register::index');
 $routes->get('/formResep', 'Home::form');
+$routes->get('myResep', 'Home::resepSaya');
+$routes->post('update', 'Home::updatePage');
+$routes->post('updateProses', 'Proses::update');
 $routes->post('loginAction' ,'Login::process');
 $routes->post('formAction' ,'Home::formAction');
 $routes->post('registerAction' ,'Register::process');
+$routes->post('hapusResep' ,'Proses::delete');
+
 
 
 /*

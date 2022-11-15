@@ -26,7 +26,8 @@ class Login extends BaseController
             if (password_verify($password, $dataUser->password)) {
                 session()->set([
                     'username' => $username,
-                    'logged_in' => TRUE
+                    'logged_in' => TRUE,
+                    'id' => $dataUser->id
                 ]);
                 return redirect()->to(base_url('beranda'));
             } else {
