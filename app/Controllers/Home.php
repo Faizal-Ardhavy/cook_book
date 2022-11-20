@@ -33,13 +33,11 @@ class Home extends BaseController
 
     }
 
-    public function detil(){
-        // $list = new ResepModel();
+    public function detil($id){
+        $resep = new ResepModel();
+        $data["data"] = $resep->where('id',$id)->find();
 
-        // $listData = $list->findAll();
-        
-        // $data = ['data' => $listData];
-        return view('detil');
+        return view('detil',$data);
     }
 
     public function form(){
@@ -88,7 +86,7 @@ class Home extends BaseController
             return view('myResep', $dataAll);
         }
     }
-    public function updatePage(){
+    public function updatePage($id){
         $session = session();
         $list = new ResepModel();
         if(!$session->logged_in==true){
@@ -96,8 +94,7 @@ class Home extends BaseController
             return redirect()->to(base_url() . '/');
         }else{
             $list = new ResepModel();
-            $data["data"] = $this->request->getVar('id');
-            $resep["resep"] =  $list->where('id',$data)->find();
+            $resep["resep"] =  $list->where('id',$id)->find();
 
         return view('formUpdateResep',$resep);
         }

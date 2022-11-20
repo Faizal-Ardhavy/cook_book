@@ -89,7 +89,7 @@ https://templatemo.com/tm-556-catalog-z
                     <img src=<?=$gambar?> alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2><?= $dt["resep"] ?></h2>
-                        <a href="detil?id=<?=$dt['id']?>">View more</a>
+                        <a href="detil/<?=$dt['id']?>">View more</a>
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">

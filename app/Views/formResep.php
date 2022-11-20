@@ -32,6 +32,10 @@
                         <span class="details">penjelasan Resep</span>
                         <input type="text" placeholder="Nama Resep" required id="penjelasan" name="penjelasan">
                     </div>
+                    <div class="form-control mb-3">
+                        <span class="details">Gambar Resep</span>
+                        <input type="file" placeholder="Gambar Resep" required id="gambar" name="gambar" accept="image/x-png,image/gif,image/jpeg">
+                    </div>
                 </div>
                     <!-- <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Bahan Resep</label>

@@ -83,21 +83,15 @@ https://templatemo.com/tm-556-catalog-z
                     <img src=<?=$gambar?> alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2><?= $dt["resep"] ?></h2>
-                        <a href="detil?id=<?=$dt['id']?>">View more</a>
+                        <a href="detil/<?=$dt['id']?>">View more</a>
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span class="tm-text-gray-light"><?= $dt["author"] ?></span>
                     <span>9,906 views</span>
                 </div>
-                <form action="update" method="POST">
-                    <button type="submit" class="btn btn-outline-primary">Perbarui</button>
-                    <input type="hidden" value="<?=$dt['id']?>" name ="id">
-                </form>
-                <form action="hapusResep" method="POST">
-                    <button type="submit" class="btn btn-outline-danger">Hapus</button>
-                    <input type="hidden" value="<?=$dt['id']?>" name ="id">
-                </form>
+                    <a href="update/<?=$dt['id']?>" type="button" class="btn btn-outline-primary">Perbarui</a>
+                    <a href="hapusResep/<?=$dt['id']?>" type="button" class="btn btn-outline-danger">Hapus</a>
 
 
             </div>   

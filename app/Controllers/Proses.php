@@ -13,17 +13,15 @@ class Proses extends BaseController
         return view('beranda');
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $session = session();
-        $data["data"] = $this->request->getVar('id');
-        
+        $session = session();        
         $resep = new ResepModel();
         
-        $hapus = $resep->where('id', $data)->delete($data);
+        $hapus = $resep->where('id', $id)->delete($id);
 
         if($hapus){
-            return redirect("beranda");
+            return redirect()->back();
         }else{
             echo "Something went wrong";
             return redirect()->back();
@@ -32,9 +30,8 @@ class Proses extends BaseController
     }
 
 
-    public function update(){
+    public function update($id){
         $session = session();
-        $id = $this->request->getVar('id');
         $data = [
             'resep' => $this->request->getVar('namaResep'),
             'bahan' => $this->request->getVar('bahan'),
