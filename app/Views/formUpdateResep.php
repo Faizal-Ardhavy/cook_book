@@ -18,7 +18,7 @@
         <div class="container">
             <div class="title">Buat Resep</div>
             <div class="content">
-                <form action="updateProses" method="post">
+                <form action="updateProses" method="post" enctype="multipart/form-data">
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nama Resep</span>

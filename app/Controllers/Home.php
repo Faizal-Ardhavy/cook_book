@@ -51,14 +51,53 @@ class Home extends BaseController
         $dataUser = $users->where([
             'username' => $_SESSION["username"] 
         ])->first();
+        if (!$this->validate([
+			'namaResep' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Tidak boleh kosong'
+				]
+			],
+            'bahan' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Tidak boleh kosong'
+				]
+			],
+            'penjelesan' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Tidak boleh kosong'
+				]
+			],
+			'gambar' => [
+				'rules' => 'uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]|max_size[gambar,2048]',
+				'errors' => [
+					'uploaded' => 'Harus Ada File yang diupload',
+					'mime_in' => 'File Extention Harus Berupa jpg,jpeg,gif,png',
+					'max_size' => 'Ukuran File Maksimal 2 MB'
+				]
+ 
+			]
+		])) {
+			session()->setFlashdata('error', $this->validator->listErrors());
+            // return redirect()->back()->withInput();
+
+        }
+ 		$dataGambar = $this->request->getFile('gambar');
+        $fileName = $dataGambar->getRandomName();
         $resep->insert([
             'id_author' => $dataUser->id,
             'author' => $dataUser->nama,
             'resep' => $this->request->getVar('namaResep'),
             'bahan' => $this->request->getVar('bahan'),
-            'penjelasan_resep' => $this->request->getVar('penjelasan')
+            'penjelasan_resep' => $this->request->getVar('penjelasan'),
+            'gambar_resep' => $fileName,
             
         ]);
+        $dataGambar->move('../public/img', $fileName);
+		session()->setFlashdata('success', 'Berkas Berhasil diupload');
+        // dd($resep);
         return redirect()->to("beranda");
     }
 
