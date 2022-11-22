@@ -35,7 +35,21 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::loginPage');
+$routes->get('detil/(:any)' ,'Home::detil/$1');
+$routes->get('beranda', 'Home::index');
+$routes->get('logout', 'Login::logout');
+$routes->get('/register', 'Register::index');
+$routes->get('/formResep', 'Home::form');
+$routes->get('myResep', 'Home::resepSaya');
+$routes->get('update/(:any)', 'Home::updatePage/$1');
+$routes->post('updateProses', 'Proses::update');
+$routes->post('loginAction' ,'Login::process');
+$routes->post('formAction' ,'Home::formAction');
+$routes->post('registerAction' ,'Register::process');
+$routes->get('hapusResep/(:any)' ,'Proses::delete/$1');
+
+
 
 /*
  * --------------------------------------------------------------------
