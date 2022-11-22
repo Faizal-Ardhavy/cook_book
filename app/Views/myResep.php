@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="/fontawesome/css/all.min.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="/css/templatemo-style.css?v=<?php echo time(); ?>">
-<!--
+    <!--
     
 TemplateMo 556 Catalog-Z
 
@@ -15,6 +16,7 @@ https://templatemo.com/tm-556-catalog-z
 
 -->
 </head>
+
 <body>
     <!-- Page Loader -->
     <div id="loader-wrapper">
@@ -34,24 +36,24 @@ https://templatemo.com/tm-556-catalog-z
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-1" href="beranda">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="formResep">Buat Resep</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-3 active" aria-current="page" href="">Resep Saya</a>
-                </li>
-                <li class="dropdown nav-item">
+                <ul class="ml-auto navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1 " href="beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-2" href="formResep">Buat Resep</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-3 active"  aria-current="page" href="myResep">Resep Saya</a>
+                    </li>
+                    <li class="dropdown nav-item">
                         <a class="nav-link nav-link-3 dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><?= $dataAll[0][0]->nama ?></a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><a class="dropdown-item text-danger" href="logout">Log Out</a></li>
                         </ul>
                     </li>
-            </ul>
+                </ul>
             </div>
         </div>
     </nav>
@@ -72,31 +74,31 @@ https://templatemo.com/tm-556-catalog-z
         </div>
         <div class="row tm-mb-90 tm-gallery">
             <?php
-             foreach ($dataAll[1] as $dt) {
+            foreach ($dataAll[1] as $dt) {
             ?>
-        	<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                <?php
-                    $gambar = $dt["gambar_resep"];
-                    if($dt["gambar_resep"]==null){
-                        $gambar = "https://asset.kompas.com/crops/AnzPGqRxpoD-26G__5fPh6ooZSk=/0x28:640x455/750x500/data/photo/2020/12/12/5fd44cf8e94b1.jpg";
-                    }
-                    ?>
-                    <img src="../img/<?=$gambar?>"alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2><?= $dt["resep"] ?></h2>
-                        <a href="detil/<?=$dt['id']?>">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light"><?= $dt["author"] ?></span>
-                    <span>9,906 views</span>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                    <figure class="effect-ming tm-video-item">
+                        <?php
+                        $gambar = $dt["gambar_resep"];
+                        if ($dt["gambar_resep"] == null) {
+                            $gambar = "https://asset.kompas.com/crops/AnzPGqRxpoD-26G__5fPh6ooZSk=/0x28:640x455/750x500/data/photo/2020/12/12/5fd44cf8e94b1.jpg";
+                        }
+                        ?>
+                        <img src="../img/<?= $gambar ?>" alt="Image" class="img-fluid">
+                        <figcaption class="d-flex align-items-center justify-content-center">
+                            <h2><?= $dt["resep"] ?></h2>
+                            <a href="detil/<?= $dt['id'] ?>">View more</a>
+                        </figcaption>
+                    </figure>
+                    <div class="d-flex justify-content-between tm-text-gray">
+                        <span class="tm-text-gray-light"><?= $dt["author"] ?></span>
+                        <span>9,906 views</span>
+                    </div>
+                    <a href="update/<?= $dt['id'] ?>" type="button" class="btn btn-outline-primary">Perbarui</a>
+                    <a href="hapusResep/<?= $dt['id'] ?>" type="button" class="btn btn-outline-danger">Hapus</a>
+
+
                 </div>
-                    <a href="update/<?=$dt['id']?>" type="button" class="btn btn-outline-primary">Perbarui</a>
-                    <a href="hapusResep/<?=$dt['id']?>" type="button" class="btn btn-outline-danger">Hapus</a>
-
-
-            </div>   
             <?php
             }
             ?>
@@ -111,7 +113,7 @@ https://templatemo.com/tm-556-catalog-z
                     <a href="javascript:void(0);" class="tm-paging-link">4</a>
                 </div>
                 <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
-            </div>            
+            </div>
         </div>
     </div> <!-- container-fluid, tm-container-content -->
 
@@ -124,12 +126,15 @@ https://templatemo.com/tm-556-catalog-z
             </div>
         </div>
     </footer>
-    
+
     <script src="/js/plugins.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script>
         $(window).on("load", function() {
             $('body').addClass('loaded');
         });
     </script>
 </body>
+
 </html>
