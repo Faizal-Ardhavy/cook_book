@@ -36,13 +36,13 @@ https://templatemo.com/tm-556-catalog-z
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-1" href="beranda">Beranda</a>
+                    <a class="nav-link nav-link-1 active" aria-current="page" href="beranda">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-2" href="formResep">Buat Resep</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-3 active" aria-current="page" href="">Resep Saya</a>
+                    <a class="nav-link nav-link-3" href="myResep">Resep Saya</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-3" href=""><?= $dataAll[0][0]->nama?></a>
@@ -53,6 +53,12 @@ https://templatemo.com/tm-556-catalog-z
     </nav>
 
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/bg.jpg">
+        <form action="search" method="POST" class="d-flex tm-search-form">
+            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success tm-search-btn" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
     </div>
 
     <div class="container-fluid tm-container-content tm-mt-60">
@@ -68,30 +74,28 @@ https://templatemo.com/tm-556-catalog-z
         </div>
         <div class="row tm-mb-90 tm-gallery">
             <?php
-             foreach ($dataAll[1] as $dt) {
+            $count=count($dataAll[1]);
+            for ($i = 0; $i<$count; $i++) {
+                
             ?>
         	<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                <?php
-                    $gambar = $dt["gambar_resep"];
-                    if($dt["gambar_resep"]==null){
+                    <?php
+                    $gambar = $dataAll[1][$i]["gambar_resep"];
+                    if($dataAll[1][$i]["gambar_resep"]==null){
                         $gambar = "https://asset.kompas.com/crops/AnzPGqRxpoD-26G__5fPh6ooZSk=/0x28:640x455/750x500/data/photo/2020/12/12/5fd44cf8e94b1.jpg";
                     }
                     ?>
-                    <img src="../img/<?=$gambar?>"alt="Image" class="img-fluid">
+                    <img src="../img/<?=$gambar?>" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2><?= $dt["resep"] ?></h2>
-                        <a href="detil/<?=$dt['id']?>">View more</a>
+                        <h2><?= $dataAll[1][$i]["resep"] ?></h2>
+                        <a href="detil/<?=$dataAll[1][$i]['id']?>">View more</a>
                     </figcaption>                    
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light"><?= $dt["author"] ?></span>
+                    <span class="tm-text-gray-light"><?= $dataAll[1][$i]["author"] ?></span>
                     <span>9,906 views</span>
                 </div>
-                    <a href="update/<?=$dt['id']?>" type="button" class="btn btn-outline-primary">Perbarui</a>
-                    <a href="hapusResep/<?=$dt['id']?>" type="button" class="btn btn-outline-danger">Hapus</a>
-
-
             </div>   
             <?php
             }

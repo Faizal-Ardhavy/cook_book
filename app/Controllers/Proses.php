@@ -15,22 +15,22 @@ class Proses extends BaseController
 
     public function delete($id)
     {
-        $session = session();        
+        $session = session();
         $resep = new ResepModel();
-        
+
         $hapus = $resep->where('id', $id)->delete($id);
 
-        if($hapus){
+        if ($hapus) {
             return redirect()->back();
-        }else{
+        } else {
             echo "Something went wrong";
             return redirect()->back();
         }
-        
     }
 
 
-    public function update($id){
+    public function update($id)
+    {
         $session = session();
         $data = [
             'resep' => $this->request->getVar('namaResep'),
@@ -46,8 +46,37 @@ class Proses extends BaseController
             echo "Something went wrong";
             return redirect()->back();
         }
+    }
 
+    public function search()
+    {
+        $session = session();
+        if (!$session->logged_in == true) {
+            echo "<script type='text/javascript'>alert('Belum sign in');</script>";
+            return redirect()->to(base_url() . '/');
+        } else {
+            $list = new ResepModel();
+            $akun = new AkunModel();
+
+            $kunci = $this->request->getVar('cari');
+
+            if ($kunci) {
+                $query = $list->pencarian($kunci);
+                $jumlah = "Pencarian dengan nama <B>$kunci</B> ditemukan " . $query->affectedRows() . " Data";
+            } else {
+                $query = $list;
+                $jumlah = "";
+            }
+            $dataAll["dataAll"] = [
+                $dataUser['dataUser'] = $akun->where('username', $_SESSION["username"])->find(),
+
+                $data["data"] = $query->paginate()
+
+            ];
+            // dd($dataAll["dataAll"][1]);
+            return view('hasil', $dataAll);
+
+        }
 
     }
-    
 }
