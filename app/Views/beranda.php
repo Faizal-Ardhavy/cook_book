@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="/fontawesome/css/all.min.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="/css/templatemo-style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
     <!--
     
 TemplateMo 556 Catalog-Z
@@ -26,37 +28,24 @@ https://templatemo.com/tm-556-catalog-z
         <div class="loader-section section-right"></div>
 
     </div>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-hamburger mr-2"></i>
-                My Cook Book
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="ml-auto navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-1 active" aria-current="page" href="beranda">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-2" href="formResep">Buat Resep</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-3" href="myResep">Resep Saya</a>
-                    </li>
-                    <li class="dropdown nav-item">
-                        <a class="nav-link nav-link-3 dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><?= $dataAll[0][0]->nama ?></a>
-                        <ul class="dropdown-menu">
+ 
+
+    <div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Cookbook</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="beranda" class="w3-bar-item w3-button">Home</a>
+      <a href="formResep" class="w3-bar-item w3-button">Buat Resep</a>
+      <a href="myResep" class="w3-bar-item w3-button">Resep Saya</a>
+      <a href="#contact" class="w3-bar-item w3-button" class="nav-link nav-link-3 dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><?= $dataAll[0][0]->nama ?></a>
+      <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><a class="dropdown-item text-danger" href="logout">Log Out</a></li>
                         </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    </div>
+  </div>
+</div>
 
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/bg.jpg">
         <form class="d-flex tm-search-form" action="search" method="POST">

@@ -26,7 +26,7 @@
                    <div class="inputBx">
                        <span>Password</span>
                        <label>
-                           <input type="text" name="password" required autocomplete="off">
+                           <input type="password" name="password" required autocomplete="off">
                        </label>
                    </div>
                    <div class="inputBx">
