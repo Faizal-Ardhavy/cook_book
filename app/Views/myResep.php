@@ -49,7 +49,7 @@ https://templatemo.com/tm-556-catalog-z
                     <li class="dropdown nav-item">
                         <a class="nav-link nav-link-3 dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><?= $dataAll[0][0]->nama ?></a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="profile">Profile</a></li>
                             <li><a class="dropdown-item text-danger" href="logout">Log Out</a></li>
                         </ul>
                     </li>
