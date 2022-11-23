@@ -36,7 +36,7 @@ https://templatemo.com/tm-556-catalog-z
       <a href="formResep" class="w3-bar-item w3-button">Buat Resep</a>
       <a href="myResep" class="w3-bar-item w3-button">Resep Saya</a>
       <a href="editProfile" class="w3-bar-item w3-button">Edit Profile</a>
-      <a href="#contact" class="w3-bar-item w3-button" class="nav-link nav-link-3 dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><?= $dataAll[0][0]->nama ?></a>
+      <a href="#contact" class="w3-bar-item w3-button" class="nav-link nav-link-3 dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#"><?= $dataAll[1][0]->nama ?></a>
       <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><a class="dropdown-item text-danger" href="logout">Log Out</a></li>
@@ -59,10 +59,9 @@ https://templatemo.com/tm-556-catalog-z
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                    <?= $dataAll[0][0]["job"] ?>
                                     </h6>
                                     <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -88,7 +87,7 @@ https://templatemo.com/tm-556-catalog-z
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p><?= $dataAll[0][0]["userId"] ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -96,7 +95,7 @@ https://templatemo.com/tm-556-catalog-z
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
+                                                <p><?= $dataAll[0][0]["namaUser"] ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -104,7 +103,7 @@ https://templatemo.com/tm-556-catalog-z
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                <p><?= $dataAll[0][0]["email"] ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -112,7 +111,7 @@ https://templatemo.com/tm-556-catalog-z
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p><?= $dataAll[0][0]["telp"] ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -120,7 +119,7 @@ https://templatemo.com/tm-556-catalog-z
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p><?= $dataAll[0][0]["job"] ?></p>
                                             </div>
                                         </div>
                             </div>
