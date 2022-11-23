@@ -41,7 +41,7 @@ $routes->get('beranda', 'Home::index');
 $routes->get('logout', 'Login::logout');
 $routes->get('/register', 'Register::index');
 $routes->get('/formResep', 'Home::form');
-$routes->get('/profile', 'Home::profile');
+$routes->get('/profile', 'Home::profilePage');
 $routes->get('/editProfile', 'Home::editProfile');
 $routes->get('myResep', 'Home::resepSaya');
 $routes->get('update/(:any)', 'Home::updatePage/$1');

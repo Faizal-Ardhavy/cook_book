@@ -214,6 +214,29 @@ class Home extends BaseController
         return redirect()->to("profile");
     }
 
+    public function profilePage(){
+        $session = session();
+        if(!$session->logged_in==true){
+            echo "<script type='text/javascript'>alert('Belum sign in');</script>";
+            return redirect()->to(base_url() . '/');
+        }else{
+            $profile = new ProfileModel();
+            $akun = new AkunModel();
+
+            
+            $dataAll["dataAll"] =[
+                $dataProfile["dataProfile"] = $profile->where('userId',$_SESSION["username"])->find(),
+                $dataUser['dataUser'] = $akun->where('username',$_SESSION["username"])->find()
+
+
+            ];
+
+        
+            return view('profil', $dataAll);
+        }
+
+    }
+
     public function loginPage(){
         return view("login");
     }
