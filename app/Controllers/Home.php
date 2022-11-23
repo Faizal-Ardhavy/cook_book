@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\AkunModel;
 use App\Models\ResepModel;
+use App\Models\ProfileModel;
 
 class Home extends BaseController
 {
@@ -42,6 +43,63 @@ class Home extends BaseController
 
     public function form(){
         return view("formResep");
+    }
+
+    public function profile(){
+
+        
+            {
+        $session = session();
+        if(!$session->logged_in==true){
+            echo "<script type='text/javascript'>alert('Belum sign in');</script>";
+            return redirect()->to(base_url() . '/');
+        }else{
+            $list = new ResepModel();
+            $akun = new AkunModel();
+            $profil = new ProfileModel();
+            
+
+            $listData = $list->findAll();
+            
+            $dataAll["dataAll"] =[
+                $dataUser['dataUser'] = $akun->where('username',$_SESSION["username"])->find(),
+            
+                $data = ['data' => $listData],
+                
+            ];
+
+        
+            return view('Profil', $dataAll);
+        }
+
+    }
+    }
+    public function editProfile(){
+
+        
+            {
+        $session = session();
+        if(!$session->logged_in==true){
+            echo "<script type='text/javascript'>alert('Belum sign in');</script>";
+            return redirect()->to(base_url() . '/');
+        }else{
+            $list = new ResepModel();
+            $akun = new AkunModel();
+
+            $listData = $list->findAll();
+            
+            $dataAll["dataAll"] =[
+                $dataUser['dataUser'] = $akun->where('username',$_SESSION["username"])->find(),
+            
+                $data = ['data' => $listData],
+                
+            ];
+
+        
+            return view('editProfil', $dataAll);
+        }
+
+    }
     }
 
     public function formAction(){
@@ -99,6 +157,84 @@ class Home extends BaseController
 		session()->setFlashdata('success', 'Berkas Berhasil diupload');
         // dd($resep);
         return redirect()->to("beranda");
+    }
+    public function formProfile(){
+        $session = session();
+        $users = new AkunModel();
+        $profil = new ProfileModel();
+        $dataUser = $users->where([
+            'username' => $_SESSION["username"] 
+        ])->first();
+        if (!$this->validate([
+			'namaUser' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Tidak boleh kosong'
+				]
+			],
+            'job' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Tidak boleh kosong'
+				]
+			],
+            'userId' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Tidak boleh kosong'
+				]
+			],
+            'email' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Tidak boleh kosong'
+				]
+			],
+            'telp' => [
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} Tidak boleh kosong'
+				]
+			],
+		])) {
+			session()->setFlashdata('error', $this->validator->listErrors());
+            // return redirect()->back()->withInput();
+
+        }
+        $profil->insert([
+            'namaUser' => $this->request->getVar('namaUser'),
+            'job' => $this->request->getVar('job'),
+            'userId' => $this->request->getVar('userId'),
+            'email' => $this->request->getVar('email'),
+            'telp' => $this->request->getVar('telp'),
+    
+            
+        ]);
+        // dd($resep);
+        return redirect()->to("profile");
+    }
+
+    public function profilePage(){
+        $session = session();
+        if(!$session->logged_in==true){
+            echo "<script type='text/javascript'>alert('Belum sign in');</script>";
+            return redirect()->to(base_url() . '/');
+        }else{
+            $profile = new ProfileModel();
+            $akun = new AkunModel();
+
+            
+            $dataAll["dataAll"] =[
+                $dataProfile["dataProfile"] = $profile->where('userId',$_SESSION["username"])->find(),
+                $dataUser['dataUser'] = $akun->where('username',$_SESSION["username"])->find()
+
+
+            ];
+
+        
+            return view('profil', $dataAll);
+        }
+
     }
 
     public function loginPage(){

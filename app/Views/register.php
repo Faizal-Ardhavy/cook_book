@@ -26,7 +26,7 @@
                    <div class="inputBx">
                        <span>Password</span>
                        <label>
-                           <input type="text" name="password" required autocomplete="off">
+                           <input type="password" name="password" required autocomplete="off">
                        </label>
                    </div>
                    <div class="inputBx">
@@ -39,6 +39,7 @@
                        <input type="submit" value="sign up" name="sign up">
                    </div>
                </form>
+               <a href="/">Sudah Punya Akun ?</a>
            </div>
        </div>
     </section>

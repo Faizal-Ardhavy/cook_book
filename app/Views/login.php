@@ -32,6 +32,7 @@
                    <div class="inputBx">
                        <input type="submit" value="Sign In" name="login">
                    </div>
+                   <a href="register">Daftar Akun</a>
                </form>
            </div>
        </div>
