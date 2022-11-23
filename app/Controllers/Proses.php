@@ -29,8 +29,9 @@ class Proses extends BaseController
     }
 
 
-    public function update($id)
+    public function update()
     {
+        $id = $this->request->getVar('id');
         $session = session();
         $data = [
             'resep' => $this->request->getVar('namaResep'),

@@ -133,9 +133,12 @@ class Home extends BaseController
             return redirect()->to(base_url() . '/');
         }else{
             $list = new ResepModel();
-            $resep["resep"] =  $list->where('id',$id)->find();
+            $resepAll["resepAll"] =  [
+                $resep["resep"]=$list->where('id',$id)->find(),
+                $id
+            ];
 
-        return view('formUpdateResep',$resep);
+        return view('formUpdateResep',$resepAll);
         }
     }
 

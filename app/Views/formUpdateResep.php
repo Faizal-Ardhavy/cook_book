@@ -22,15 +22,15 @@
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nama Resep</span>
-                        <input type="text" placeholder="Nama Resep" required id="namaResep" name="namaResep" value=<?= $resep[0]["resep"] ?>>
+                        <input type="text" placeholder="Nama Resep" required id="namaResep" name="namaResep" value=<?= $resepAll[0][0]["resep"] ?>>
                     </div>
                     <div class="input-box">
                         <span class="details">Bahan Resep</span>
-                        <input type="text" placeholder="Bahan Resep" required id="bahan" name="bahan"  value=<?= $resep[0]["bahan"] ?>>
+                        <input type="text" placeholder="Bahan Resep" required id="bahan" name="bahan"  value=<?= $resepAll[0][0]["bahan"] ?>>
                     </div>
                     <div class="input-box">
                         <span class="details">penjelasan Resep</span>
-                        <input type="text" placeholder="Nama Resep" required id="penjelasan" name="penjelasan"  value=<?= $resep[0]["penjelasan_resep"] ?>>
+                        <input type="text" placeholder="Nama Resep" required id="penjelasan" name="penjelasan"  value=<?= $resepAll[0][0]["penjelasan_resep"] ?>>
                     </div>
                 </div>
                     <!-- <div class="mb-3">
@@ -42,7 +42,7 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name ="penjelasan"></textarea>
                     </div> -->
                     <div class="button">
-                        <input type="hidden" value="<?=$resep[0]['id']?>" name ="id">
+                        <input type="hidden" value="<?=$resepAll[0][0]['id']?>" name ="id">
                         <input type="submit" value="Buat Resep">
                     </div>
                 </form>

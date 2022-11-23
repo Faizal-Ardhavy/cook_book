@@ -44,7 +44,7 @@ $routes->get('/formResep', 'Home::form');
 $routes->get('myResep', 'Home::resepSaya');
 $routes->get('update/(:any)', 'Home::updatePage/$1');
 $routes->post('search', 'Proses::search');
-$routes->post('updateProses', 'Proses::update');
+$routes->post('update/updateProses', 'Proses::update');
 $routes->post('loginAction' ,'Login::process');
 $routes->post('formAction' ,'Home::formAction');
 $routes->post('registerAction' ,'Register::process');
