@@ -59,7 +59,7 @@ https://templatemo.com/tm-556-catalog-z
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                    <?= $data[0]["namaUser"] ?>
+                
                                     </h5>
                                     <h6>
                                         Web Developer and Designer

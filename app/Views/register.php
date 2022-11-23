@@ -39,6 +39,7 @@
                        <input type="submit" value="sign up" name="sign up">
                    </div>
                </form>
+               <a href="/">Sudah Punya Akun ?</a>
            </div>
        </div>
     </section>
